@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Poisson Probabilities</title>
+
+  <style>
+    body { max-width: 440px; }
+    pre  { overflow-x: auto; }
+    input { width: 50px }
+  </style>
+</head>
+
+<body>
+
+<h2 id=title></h2>
+x = <input type=number id=ex value=0 onChange="calculate()">
+&emsp;
+λ = <input type=number id=lam value=1 onChange="calculate()">
+&emsp;
+<span id=res></span>
+<pre id=out><b>Table</b></pre>
+
+<hr />
+<b>Sample code</b>
+<pre id=sample></pre>
+
+<hr />
+<p>Ref: <a href="https://www.dummies.com/education/math/business-statistics/how-to-compute-poisson-probabilities/" 
+   target="NewTab">Poisson Table</a>
+</p>
+
+<script>
+"use strict";
+function poisson(x, λ, f=4) {
+    let p = Math.exp(-λ)
+    for (let k=1; k<=x; k++) p = p*λ/k
+    return p.toFixed(f)
+}
+function calculate() {
+    let x = Number(ex.value)
+    if (!Number.isInteger(x)) {
+       x = Math.round(x); ex.value = x
+    }
+    let λ = Number(lam.value)
+    res.innerText = "P(x, λ) = "+poisson(x, λ)
+}
+function doTable() {
+    const L = [0.5, 1, 1.5, 2, 2.5, 3]
+    let a = L.map((λ) => 'λ='+λ)
+    let str = header(a)
+    for (let x=0; x<=8; x++) { 
+       let a = L.map((λ) => poisson(x, λ))
+       str += oneLine(a, x)
+    }
+    return str
+}
+let header  = (a) => '      '+ a.join('   ')  //pre
+let oneLine = (a, x) => '\nx='+x+'  '+ a.join(' ')
+    
+    title.innerText = document.title
+    sample.innerText = poisson+'\n'+doTable
+    calculate()
+    out.innerText = doTable()
+</script>
+
+</body>
+</html>
