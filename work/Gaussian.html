@@ -48,7 +48,7 @@ function calculate() {
 }
 function doTable() {
     const L = [0, 1, 2, 3, 4, 5]
-    let a = L.map((λ) => 'λ='+λ)
+    let a = L.map((λ) => 'λde='+λ)
     let str = header(a)
     for (let x=0; x<=8; x++) { 
        let a = L.map((λ) => poisson(x, λ))
@@ -57,7 +57,7 @@ function doTable() {
     return str
 }
 let header  = (a) => '      '+ a.join('   ')  //pre
-let oneLine = (a, x) => '\nxve='+x+'  '+ a.join(' ')
+let oneLine = (a, x) => '\nx='+x+'  '+ a.join(' ')
     
     title.innerText = document.title
     sample.innerText = poisson+'\n'+doTable
