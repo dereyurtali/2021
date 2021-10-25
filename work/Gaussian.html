@@ -6,7 +6,7 @@
     <title>Gaussian (Normal) Distribution</title>
 
   <style>
-    body { max-width: 440px; }
+    body { max-width: 540px; }
     pre  { overflow-x: auto; }
     input { width: 50px }
   </style>
@@ -48,7 +48,7 @@ function calculate() {
 }
 function doTable() {
     const L = [0, 1, 2, 3, 4, 5]
-    let a = L.map((λ) => 'λde='+λ)
+    let a = L.map((λ) => 'λ='+λ)
     let str = header(a)
     for (let x=0; x<=8; x++) { 
        let a = L.map((λ) => poisson(x, λ))
