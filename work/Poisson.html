@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width">
-    <title>Poisson Probabilities</title>
+    <title>Poisson Probabilities - HW1</title>
 
   <style>
     body { max-width: 440px; }
@@ -47,7 +47,7 @@ function calculate() {
     res.innerText = "P(x, λ) = "+poisson(x, λ)
 }
 function doTable() {
-    const L = [0.5, 1, 1.5, 2, 2.5, 3]
+    const L = [0, 1, 2, 3, 4, 5]
     let a = L.map((λ) => 'λ='+λ)
     let str = header(a)
     for (let x=0; x<=8; x++) { 
