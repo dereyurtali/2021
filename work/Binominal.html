@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width">
-    <title>Gaussian (Normal) Distribution</title>
+    <title>Binominal Distribution</title>
 
   <style>
     body { max-width: 540px; }
@@ -38,6 +38,7 @@ function poisson(x, λ, f=4) {
     for (let k=1; k<=x; k++) p = p*λ/k
     return p.toFixed(f)
 }
+
 function calculate() {
     let x = Number(ex.value)
     if (!Number.isInteger(x)) {
